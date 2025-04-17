@@ -1,0 +1,377 @@
+.section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAF9E3;
+  color: #343434;
+  overflow-x: hidden;
+}
+
+.content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.imagePlaceholder {
+  background-color: white;
+  border: 2px dashed #658BB7;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #658BB7;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #658BB7 25%, transparent 25%),
+              linear-gradient(-45deg, #658BB7 25%, transparent 25%),
+              linear-gradient(45deg, transparent 75%, #658BB7 75%),
+              linear-gradient(-45deg, transparent 75%, #658BB7 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  opacity: 0.1;
+}
+
+.homeImage {
+  width: min(60vh, 80vw);
+  height: min(60vh, 80vw);
+  margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .imagePlaceholder {
+    background-color: #5A4E44;
+    border-color: #F2FDFF;
+    color: #F2FDFF;
+  }
+
+  .imagePlaceholder::before {
+    background: linear-gradient(45deg, #F2FDFF 25%, transparent 25%),
+                linear-gradient(-45deg, #F2FDFF 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #F2FDFF 75%),
+                linear-gradient(-45deg, transparent 75%, #F2FDFF 75%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .section {
+    background-color: #4A3E34;
+    color: #F2FDFF;
+  }
+}
+
+.section.about {
+  background-color: #FAF9E3;
+}
+
+.section.projects {
+  background-color: #FAF9E3;
+}
+
+.section.blog {
+  background-color: #FAF9E3;
+}
+
+.section.contact {
+  background-color: #99806B;
+}
+
+.twoColumnLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.imageColumn, .textColumn {
+  width: 100%;
+}
+
+.textColumn {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aboutText {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.emphasis {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.placeholder {
+  border: 2px dashed #658BB7;
+  padding: 1rem;
+  border-radius: 4px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .twoColumnLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .placeholder {
+    border-color: #F2FDFF;
+  }
+}
+
+.projectRows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projectRow {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    min-height: 150px;
+    padding: 1.5rem;
+  }
+  
+  .projectCard h3 {
+    font-size: 1.2rem;
+  }
+  
+  .projectCard p {
+    font-size: 1rem;
+  }
+}
+
+.blogPreview {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.blogPreview #substack-feed-embed {
+  margin-bottom: 1rem;
+  min-height: 200px;
+}
+
+.readMore {
+  display: block;
+  margin-top: 1rem;
+  color: inherit;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.readMore:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .blogPreview #substack-feed-embed {
+    min-height: 150px;
+  }
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactForm {
+  width: 100%;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .section.blog {
+    background-color: #4A3E34;
+  }
+}
+
+.projectCard {
+  background-color: #7287A3;
+  border-radius: 8px;
+  padding: 2rem;
+  color: #FFFFFF;
+  text-align: left;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projectCard h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.projectCard p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.projectLinks {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.projectLinks a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.projectLinks a:hover {
+  opacity: 1;
+}
+
+.linkSeparator {
+  margin: 0 0.5rem;
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .section.projects {
+    background-color: #4A3E34;
+  }
+}
+
+.contactWrapper,
+.contactLinks,
+.contactRows .projectCard {
+  display: none;
+}
+
+.projectCard a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
+.projectCard a:hover {
+  opacity: 1;
+}
+
+.profileImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .section.about {
+    background-color: #4A3E34;
+  }
+}
+
+.popup {
+  background-color: #FAF9E3;
+  border: 2px solid #7287A3;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 4px 4px 0 rgba(114, 135, 163, 0.5);
+}
+
+.popupHeader {
+  background-color: #7287A3;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.popupContent {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #343434;
+}
+
+.popupFooter {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.continueButton {
+  background-color: #7287A3;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.continueButton:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .popup {
+    background-color: #4A3E34;
+  }
+  
+  .popupContent {
+    color: #F2FDFF;
+  }
+}

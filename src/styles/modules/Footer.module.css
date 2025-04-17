@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background-color: #4A3E34;
+  color: #F2FDFF;
+}
+
+.footer p {
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .footer {
+    background-color: #FAF9E3;
+    color: #343434;
+  }
+} 

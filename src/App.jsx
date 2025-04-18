@@ -8,6 +8,7 @@ import Navbar from './components/layout/navbar'
 import Footer from './components/layout/footer'
 import './App.css'
 
+// trigger deployment
 function App() {
   return (
     <div className="app">

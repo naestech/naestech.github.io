@@ -1,34 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/nae.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>naes.tech</title>
-    <script>
-      window.SubstackFeedWidget = {
-        substackUrl: "technaelogy.substack.com",
-        posts: 1,
-        hidden: ["author", "reactions", "comments", "premium"],
-        colors: {
-          primary: "#FFFFFF",
-          secondary: "#FFFFFF",
-          background: "#7287A3",
-        }
-      };
-    </script>
-    <script src="https://substackapi.com/embeds/feed.js" async></script>
-<<<<<<< HEAD
-    <script type="module" crossorigin src="/assets/index-DZvFgn0e.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-xNFsMQqu.css">
+    <style>
+      :root {
+        --primary-color: #000000;
+        --secondary-color: #ffffff;
+        --background-color: #000000;
+        --text-color: #ffffff;
+        --transition-speed: 0.3s;
+      }
+
+      [data-theme='light'] {
+        --primary-color: #000000;
+        --secondary-color: #ffffff;
+        --background-color: #ffffff;
+        --text-color: #000000;
+      }
+
+      [data-theme='dark'] {
+        --primary-color: #ffffff;
+        --secondary-color: #000000;
+        --background-color: #000000;
+        --text-color: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: 'Helvetica', Arial, sans-serif;
+        min-height: 100vh;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-=======
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
->>>>>>> d88043286618a59a3b8bce0dd9cd3484a258a1c5
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

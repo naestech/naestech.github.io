@@ -17,6 +17,7 @@ function About() {
               <p className={styles.aboutText}>
                 nadine is a software engineer based in california and texas.
               </p>
+              <br />
               <p className={styles.aboutText}>
                 <span className={styles.emphasis}>embedded in:</span>
                 nasa, warner music group, amazon web services, and the open source community.

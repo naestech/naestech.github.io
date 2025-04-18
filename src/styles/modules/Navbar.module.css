@@ -1,87 +1,77 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #FAF9E3;
-  z-index: 1000;
-  padding: 0 1rem;
-}
-
-.logo {
-  padding: 0.3rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.logo img {
-  height: 64px;
-  width: auto;
-  display: block;
-}
-
-.logo:hover {
-  opacity: 0.8;
-}
-
-.nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-}
-
-.navItem {
-  color: #343434;
-  text-decoration: underline;
-  display: flex;
-  align-items: center;
-}
-
-.separator {
-  color: #343434;
-}
-
-/* Collapsed state - only affects the nav items */
-.collapsed .nav {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Show nav items on hover */
-.collapsed:hover .nav {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Add media query for mobile */
-@media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    padding: 0.3rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  
+  .logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+  
+  .logo:hover {
+    opacity: 0.8;
+  }
+  
   .nav {
-    gap: 0.3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
   }
   
   .navItem {
-    font-size: 0.8rem;
+    color: #000000;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
   }
   
   .separator {
-    margin: 0 0.2rem;
+    color: #000000;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .navbar {
-    background-color: #4A3E34;
+  
+  /* Collapsed state - only affects the nav items */
+  .collapsed .nav {
+    opacity: 0;
+    visibility: hidden;
   }
-
-  .navItem, .separator {
-    color: #F2FDFF;
+  
+  /* Show nav items on hover */
+  .collapsed:hover .nav {
+    opacity: 1;
+    visibility: visible;
   }
-}
+  
+  /* Add media query for mobile */
+  @media (max-width: 768px) {
+    .nav {
+      gap: 0.3rem;
+    }
+    
+    .navItem {
+      font-size: 0.8rem;
+    }
+    
+    .separator {
+      margin: 0 0.2rem;
+    }
+  }

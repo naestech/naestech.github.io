@@ -1,0 +1,23 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.layout-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding-top: 80px; /* Space for fixed navbar */
+  padding-bottom: 2rem; /* Space before footer */
+}
+
+/* Ensure navbar is above everything */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+} 

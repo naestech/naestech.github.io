@@ -5,4 +5,17 @@
 
 .app {
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add padding to account for fixed navbar */
+.app > *:not(:first-child):not(:last-child) {
+  padding-top: 60px;
+}
+
+/* Ensure footer stays at bottom */
+.app > *:last-child {
+  margin-top: auto;
 }

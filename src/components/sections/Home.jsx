@@ -20,23 +20,20 @@ function Home() {
           this.y = p.random(p.height)
           this.vx = p.random(-maxSpeed, maxSpeed)
           this.vy = p.random(-maxSpeed, maxSpeed)
-          this.size = p.random(1, 3) // Random size between 1 and 3 pixels
-          this.opacity = p.random(150, 255) // Random opacity for more depth
+          this.size = p.random(1, 3)
+          this.opacity = p.random(150, 255)
         }
 
         update(mouseX, mouseY) {
-          // Add random movement
           this.vx += p.random(-0.2, 0.2)
           this.vy += p.random(-0.2, 0.2)
 
-          // Limit speed
           const speed = p.sqrt(this.vx * this.vx + this.vy * this.vy)
           if (speed > maxSpeed) {
             this.vx = (this.vx / speed) * maxSpeed
             this.vy = (this.vy / speed) * maxSpeed
           }
 
-          // Mouse repulsion
           const dx = this.x - mouseX
           const dy = this.y - mouseY
           const distance = p.sqrt(dx * dx + dy * dy)
@@ -48,11 +45,9 @@ function Home() {
             this.vy += p.sin(angle) * force
           }
 
-          // Update position
           this.x += this.vx
           this.y += this.vy
 
-          // Wrap around edges
           if (this.x < 0) this.x = p.width
           if (this.x > p.width) this.x = 0
           if (this.y < 0) this.y = p.height
@@ -69,7 +64,6 @@ function Home() {
         const canvas = p.createCanvas(p.windowWidth, p.windowHeight)
         canvas.parent(sketchRef.current)
         
-        // Initialize particles
         for (let i = 0; i < numParticles; i++) {
           particles.push(new Particle())
         }
@@ -79,7 +73,6 @@ function Home() {
         p.background(0)
         p.noStroke()
 
-        // Update and draw particles
         particles.forEach(particle => {
           particle.update(p.mouseX, p.mouseY)
           particle.draw()

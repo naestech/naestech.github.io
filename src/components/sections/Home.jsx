@@ -3,11 +3,14 @@ import p5 from 'p5'
 import styles from '../../styles/modules/Section.module.css'
 
 function Home() {
+  console.log('Home component rendering')
   const sketchRef = useRef()
   const p5Instance = useRef()
 
   useEffect(() => {
+    console.log('Home useEffect running')
     const sketch = (p) => {
+      console.log('p5 sketch initializing')
       let particles = []
       const numParticles = 2000
       const repulsionRadius = 100
@@ -61,6 +64,7 @@ function Home() {
       }
 
       p.setup = () => {
+        console.log('p5 setup running')
         const canvas = p.createCanvas(p.windowWidth, p.windowHeight)
         canvas.parent(sketchRef.current)
         

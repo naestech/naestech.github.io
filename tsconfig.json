@@ -18,7 +18,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

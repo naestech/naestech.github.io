@@ -1,11 +1,11 @@
 import { HashRouter } from 'react-router-dom'
 import Navbar from './components/layout/navbar'
 import Footer from './components/layout/footer'
-import Home from './components/sections/home'
-import About from './components/sections/about'
-import Projects from './components/sections/projects'
-import Blog from './components/sections/blog'
-import Contact from './components/sections/contact'
+import Home from './components/sections/Home'
+import About from './components/sections/About'
+import Projects from './components/sections/Projects'
+import Blog from './components/sections/Blog'
+import Contact from './components/sections/Contact'
 
 function App() {
   return (

@@ -23,8 +23,112 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: List public directory
+        run: ls -la public/
+
       - name: Build
         run: yarn build
+      
+      - name: List dist directory (pre-copy)
+        run: ls -la dist/
+        
+      - name: Copy public assets to dist
+        run: cp -r public/* dist/
+        
+      - name: List dist directory (post-copy)
+        run: ls -la dist/
+      
+      - name: Create production-ready index.html
+        run: |
+          cat > dist/index.html << 'EOL'
+          <!DOCTYPE html>
+          <html lang="en" data-theme="dark">
+            <head>
+              <meta charset="UTF-8" />
+              <link rel="icon" type="image/png" href="nae.png" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+              <title>naes.tech</title>
+              <style>
+                :root {
+                  --primary-color: #000000;
+                  --secondary-color: #ffffff;
+                  --background-color: #000000;
+                  --text-color: #ffffff;
+                  --transition-speed: 0.3s;
+                }
+                [data-theme='dark'] {
+                  --primary-color: #ffffff;
+                  --secondary-color: #000000;
+                  --background-color: #000000;
+                  --text-color: #ffffff;
+                }
+                body {
+                  margin: 0;
+                  padding: 0;
+                  background-color: var(--background-color);
+                  color: var(--text-color);
+                  font-family: 'Helvetica', Arial, sans-serif;
+                  min-height: 100vh;
+                }
+                #root {
+                  min-height: 100vh;
+                }
+              </style>
+            </head>
+            <body>
+              <div id="root">
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; color: white;">
+                  Loading...
+                </div>
+              </div>
+              <script type="application/javascript">
+                // Check if the main script has loaded within 5 seconds
+                setTimeout(function() {
+                  if (!window.appStarted) {
+                    console.error("Application failed to start. Redirecting to fallback...");
+                    window.location.href = "fallback.html";
+                  }
+                }, 5000);
+              </script>
+              <script type="module" src="assets/main.js"></script>
+            </body>
+          </html>
+          EOL
+      
+      - name: Create static manual fallback page
+        run: |
+          cat > dist/fallback.html << 'EOL'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <title>naes.tech - Static Fallback</title>
+            <style>
+              body {
+                background-color: black;
+                color: white;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 50px;
+              }
+              h1 { margin-bottom: 30px; }
+              a { color: #0099ff; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>naes.tech</h1>
+            <p>The application is experiencing loading issues. If you're seeing this page, please try:</p>
+            <p>1. Clearing your browser cache</p>
+            <p>2. Using a different browser</p>
+            <p>3. <a href="https://github.com/naestech/naestech.github.io">Visit the GitHub repository</a></p>
+          </body>
+          </html>
+          EOL
+        
+      - name: Create .nojekyll file
+        run: touch dist/.nojekyll
         
       - name: Create 404.html
         run: cp dist/index.html dist/404.html

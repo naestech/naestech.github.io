@@ -2,8 +2,9 @@
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./nae.png" />
+    <link rel="icon" type="image/png" href="nae.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>naes.tech</title>
     <style>
       :root {
@@ -43,7 +44,13 @@
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading state shown until React loads -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; color: white;">
+        Loading...
+      </div>
+    </div>
+    <!-- Use the import path that works in both dev and production -->
     <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>

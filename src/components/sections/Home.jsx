@@ -8,6 +8,9 @@ function Home() {
   const p5Instance = useRef()
   const [error, setError] = useState(null)
 
+  // Log p5 version
+  console.log('p5.js version:', p5.VERSION || 'unknown')
+  
   useEffect(() => {
     console.log('Home useEffect running')
     
@@ -17,6 +20,10 @@ function Home() {
       setError('Canvas container not found')
       return
     }
+    
+    console.log('Sketch container found:', sketchRef.current)
+    console.log('Browser dimensions:', window.innerWidth, window.innerHeight)
+    console.log('User agent:', navigator.userAgent)
     
     try {
       const sketch = (p) => {
@@ -79,21 +86,32 @@ function Home() {
           const canvasWidth = Math.max(p.windowWidth, 100)
           const canvasHeight = Math.max(p.windowHeight, 100)
           
+          console.log('Creating canvas with dimensions:', canvasWidth, canvasHeight)
+          
           // Create the canvas and immediately attach it to the parent
           const canvas = p.createCanvas(canvasWidth, canvasHeight)
           if (sketchRef.current) {
+            console.log('Attaching canvas to parent')
             canvas.parent(sketchRef.current)
+            console.log('Canvas attached successfully')
           } else {
             console.error('Parent element not available during p5 setup')
           }
           
+          console.log('Initializing particles')
           // Initialize particles
           for (let i = 0; i < numParticles; i++) {
             particles.push(new Particle())
           }
+          console.log('Created', particles.length, 'particles')
         }
   
         p.draw = () => {
+          // Add a counter to track frames
+          if (!p.frameCount || p.frameCount % 100 === 0) {
+            console.log('p5 draw running, frame:', p.frameCount)
+          }
+          
           p.background(0)
           p.noStroke()
   
@@ -106,12 +124,15 @@ function Home() {
         p.windowResized = () => {
           const canvasWidth = Math.max(p.windowWidth, 100)
           const canvasHeight = Math.max(p.windowHeight, 100)
+          console.log('Window resized, new dimensions:', canvasWidth, canvasHeight)
           p.resizeCanvas(canvasWidth, canvasHeight)
         }
       }
   
+      console.log('Creating new p5 instance')
       // Create new p5 instance
       p5Instance.current = new p5(sketch)
+      console.log('p5 instance created:', !!p5Instance.current)
     } catch (err) {
       console.error('Error creating p5 sketch:', err)
       setError(`Failed to initialize canvas: ${err.message}`)
@@ -122,6 +143,7 @@ function Home() {
         console.log('Cleaning up p5 instance')
         try {
           p5Instance.current.remove()
+          console.log('p5 instance removed successfully')
         } catch (err) {
           console.error('Error removing p5 instance:', err)
         }

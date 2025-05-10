@@ -25,5 +25,8 @@ export default defineConfig({
     headers: {
       'Content-Type': 'application/javascript'
     }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   }
 })

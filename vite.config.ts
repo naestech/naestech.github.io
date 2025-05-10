@@ -25,18 +25,16 @@ export default defineConfig({
       }
     }
   ],
-  base: './',
+  base: '/',
   build: {
-    // Make sure no files are hashed in production for easier debugging
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Use simple unhashed names for now to debug production issues
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     },
     // Copy index.html verbatim
@@ -44,7 +42,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['p5'],
-    // Force p5.js to be prebundled
     force: true
   }
 })

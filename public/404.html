@@ -2,12 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <title>naes.tech</title>
     <script>
-      sessionStorage.redirect = location.href;
+      // Store the path we want to redirect to
+      const path = window.location.pathname;
+      sessionStorage.setItem('redirect', path);
+      // Redirect to the root
+      window.location.href = '/';
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'">
   </head>
   <body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; color: white;">
+      Redirecting...
+    </div>
   </body>
 </html> 

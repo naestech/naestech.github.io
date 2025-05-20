@@ -5,10 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "prebuild": "yarn clean"
+    "prebuild": "yarn clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "audit": "yarn audit",
+    "security-check": "yarn audit && yarn outdated"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -26,7 +30,8 @@
     "@types/react-dom": "^18.2.19",
     "@types/react-router-hash-link": "^2.4.9",
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.4"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

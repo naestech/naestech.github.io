@@ -7,7 +7,7 @@ function About() {
         <div className={styles.twoColumnLayout}>
           <div className={styles.imageColumn}>
             <img 
-              src="/naes.png" 
+              src="./naes.png" 
               alt="stylized picture of nadine" 
               className={styles.profileImage}
             />

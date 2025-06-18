@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "tsx fetch-substack.ts",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -12,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "audit": "yarn audit",
-    "security-check": "yarn audit && yarn outdated"
+    "security-check": "yarn audit && yarn outdated",
+    "update-fallback": "node update-fallback.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -30,7 +32,14 @@
     "@types/react-dom": "^18.2.19",
     "@types/react-router-hash-link": "^2.4.9",
     "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "jsdom": "^26.1.0",
+    "node-fetch": "^3.3.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.1",
     "vite": "^6.3.5"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"

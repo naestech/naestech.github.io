@@ -1,0 +1,42 @@
+name: Update Substack Blog
+
+on:
+  schedule:
+    - cron: '0 7 * * *' # every day at 7am UTC
+  workflow_dispatch:
+
+jobs:
+  update-blog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Fetch latest Substack posts
+        run: node fetch-substack.js
+
+      - name: Update Blog.tsx fallback
+        run: node update-fallback.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --global user.name 'Github Action'
+          git add public/substack.json src/components/sections/Blog.tsx
+          if git diff --staged --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "github actions: update substack blog posts"
+            git push
+          fi

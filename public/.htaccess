@@ -1,7 +1,0 @@
-AddType application/javascript .js
-AddType application/javascript .jsx
-AddType application/javascript .mjs
-
-<FilesMatch "\.(js|jsx|mjs)$">
-    Header set Content-Type "application/javascript"
-</FilesMatch> 

@@ -12,4 +12,16 @@
 
 /*.mjs
   Content-Type: application/javascript
+  X-Content-Type-Options: nosniff
+
+/*.ts
+  Content-Type: application/javascript
+  X-Content-Type-Options: nosniff
+
+/*.tsx
+  Content-Type: application/javascript
+  X-Content-Type-Options: nosniff
+
+/assets/*
+  Content-Type: application/javascript
   X-Content-Type-Options: nosniff 

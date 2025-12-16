@@ -2,7 +2,7 @@ import styles from '../../styles/modules/Section.module.css'
 
 function Contact() {
   return (
-    <section className={`${styles.section}`} id="contact">
+    <section className={`${styles.section} ${styles.contact}`} id="contact">
       <div className={styles.content}>
         <div className={styles.projectRows}>
           <div className={styles.projectRow}>

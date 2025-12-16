@@ -8,14 +8,14 @@
     position: relative;
   }
   
-  .content {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    position: relative;
-    z-index: 2;
-  }
+   .content {
+     width: 90%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 1rem;
+     position: relative;
+     z-index: 2;
+   }
   
   .imagePlaceholder {
     background-color: white;
@@ -112,10 +112,27 @@
     color: #7287A3 !important;
   }
   
-  .section.contact {
-    background-color: #000000;
-    color: #ffffff;
-  }
+   .section.contact {
+     background-color: #ffffff;
+     color: #000000;
+   }
+   
+   .section.contact .projectCard {
+     background-color: #ffffff;
+     color: #000000;
+   }
+   
+   .section.contact .projectCard h2 {
+     color: #000000;
+   }
+   
+   .section.contact .projectCard a {
+     color: #000000;
+   }
+   
+   .section.contact .projectCard p {
+     color: #000000;
+   }
   
   .twoColumnLayout {
     display: grid;
@@ -132,15 +149,26 @@
     text-align: left;
   }
   
-  .aboutText {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
-  
-  .emphasis {
-    font-weight: 600;
-    margin-right: 0.5rem;
-  }
+   .aboutText {
+     font-size: 1.2rem;
+     line-height: 1.6;
+   }
+   
+   .emphasis {
+     font-weight: 600;
+     margin-right: 0.5rem;
+   }
+
+   .animatedDots {
+     cursor: pointer;
+     display: inline;
+     font-weight: 400;
+     transition: opacity 0.2s ease;
+   }
+
+   .animatedDots:hover {
+     opacity: 0.7;
+   }
   
   .placeholder {
     border: 2px dashed #343434;
@@ -196,18 +224,34 @@
     min-height: 200px;
   }
   
-  .readMore {
-    display: block;
-    margin-top: 1rem;
-    color: inherit;
-    text-decoration: underline;
-    font-size: 1.1rem;
-    text-align: center;
-  }
-  
-  .readMore:hover {
-    opacity: 0.8;
-  }
+   .readMore {
+     display: block;
+     margin-top: 0.5rem;
+     color: inherit;
+     text-decoration: underline;
+     font-size: 0.9rem;
+     text-align: center;
+   }
+   
+   .readMore:hover {
+     opacity: 0.8;
+   }
+
+   .projectHeader {
+     text-align: center;
+     margin-bottom: 2rem;
+     font-size: 0.9rem;
+   }
+
+   .allProjectsLink {
+     color: inherit;
+     text-decoration: underline;
+     margin-left: 0.25rem;
+   }
+
+   .allProjectsLink:hover {
+     opacity: 0.8;
+   }
   
   @media (max-width: 768px) {
     .blogPreview #substack-feed-embed {

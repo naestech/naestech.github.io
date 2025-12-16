@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/Footer.css'
 
 function Footer() {
-  useEffect(() => {
-    // Detect if Dark Reader is active by checking footer's computed background color
-    const detectDarkReaderAndSwapImages = () => {
+   const [showPopup, setShowPopup] = useState(false)
+
+   const handleEmailClick = (e) => {
+     e.preventDefault()
+     navigator.clipboard.writeText('naestech@proton.me')
+     setShowPopup(true)
+     setTimeout(() => setShowPopup(false), 3000)
+   }
+
+   useEffect(() => {
+     // Detect if Dark Reader is active by checking footer's computed background color
+     const detectDarkReaderAndSwapImages = () => {
       const footer = document.querySelector('.footer')
       const blackskyImg = document.querySelector('.blacksky-icon')
       const emailImg = document.querySelector('.email-icon')
@@ -87,13 +96,20 @@ function Footer() {
     }
   }, [])
 
-  return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-social">
-          <a href="mailto:naestech@proton.me" title="Email" className="social-icon">
-            <img src="email.png" alt="Email" className="email-icon" />
-          </a>
+   return (
+     <footer className="footer">
+       <div className="footer-content">
+         <div className="footer-social">
+           <div className="email-icon-wrapper">
+             <a href="#" onClick={handleEmailClick} title="Email" className="social-icon">
+               <img src="email.png" alt="Email" className="email-icon" />
+             </a>
+             {showPopup && (
+               <div className="email-popup">
+                 email copied! let's chat soon.
+               </div>
+             )}
+           </div>
           <a href="https://fedi.naes.tech/nae" target="_blank" rel="noopener noreferrer" title="Fediverse" className="social-icon">
             <img src="fediverse.png" alt="Fediverse" className="fediverse-icon" />
           </a>

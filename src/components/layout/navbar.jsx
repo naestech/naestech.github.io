@@ -62,12 +62,10 @@ function Navbar() {
         <img src={naeLogo} alt="naes.tech logo" className="nae-logo-img" />
       </a>
       <div className="navbar-links">
-        <a href="#about" className="navbar-link">about</a>
-        <span className="separator">::</span>
-        <a href="#projects" className="navbar-link">projects</a>
-        <span className="separator">::</span>
-        <a href="#contact" className="navbar-link">contact</a>
-      </div>
+         <a href="#about" className="navbar-link">about</a>
+         <span className="separator">::</span>
+         <a href="#projects" className="navbar-link">projects</a>
+       </div>
     </nav>
   )
 }

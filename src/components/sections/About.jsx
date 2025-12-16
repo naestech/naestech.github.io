@@ -46,17 +46,23 @@ function About() {
                     {getDots()}
                   </span>
                 </p>
-              ) : (
-                <p className={styles.aboutText}>
-                  nadine is a software engineer based in california and texas. they explore the interplay between creativity and technology, guided by the belief that software should be a tool rather than an authority, while working towards the internet that should have been
-                  <span 
-                    className={styles.animatedDots}
-                    onClick={handleDotClick}
-                  >
-                    .
-                  </span>
-                </p>
-              )}
+               ) : (
+                 <>
+                   <p className={styles.aboutText}>
+                     nadine is a software engineer based in california and texas.
+                   </p>
+                   <br />
+                   <p className={styles.aboutText}>
+                     they explore the interplay between creativity and technology, guided by the belief that software should be a tool rather than an authority, while working towards the internet that should have been
+                     <span 
+                       className={styles.animatedDots}
+                       onClick={handleDotClick}
+                     >
+                       .
+                     </span>
+                   </p>
+                 </>
+               )}
               <br />
               <p className={styles.aboutText}>
                 <span className={styles.emphasis}>embedded in:</span>
